@@ -68,7 +68,7 @@ public class MyExpandableReyclerAdapter extends ExpandableRecyclerAdapter<MyExpa
         @Override
         public void onClick(View v) {
             String info = mExpandableMenu.getMenuInfo().toString();
-            Toast.makeText(v.getContext(), "Child clicked on Position " + getAdapterPosition(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(v.getContext(), info + " -- Child clicked on Position " + getAdapterPosition(), Toast.LENGTH_SHORT).show();
         }
     }
 }
