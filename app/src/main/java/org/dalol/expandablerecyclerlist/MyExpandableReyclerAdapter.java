@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import org.dalol.expandablelistlibrary.adapter.ExpandableRecyclerAdapter;
 import org.dalol.expandablelistlibrary.holder.ChildViewHolder;
@@ -14,15 +15,16 @@ import org.dalol.expandablelistlibrary.holder.ParentViewHolder;
  * @version 1.0.0
  * @since 10/29/2016
  */
-public class MyExpandableReyclerAdapter extends ExpandableRecyclerAdapter<MyExpandableReyclerAdapter.MyParentViewHolder, ChildViewHolder> {
+public class MyExpandableReyclerAdapter extends ExpandableRecyclerAdapter<MyExpandableReyclerAdapter.MyParentViewHolder,
+        MyExpandableReyclerAdapter.MyChildViewHolder> {
 
     public MyExpandableReyclerAdapter(Context context) {
         super(context);
     }
 
     @Override
-    protected ChildViewHolder onCreateChildViewHolder(LayoutInflater inflater, ViewGroup parent) {
-        return new ChildViewHolder(inflater.inflate(R.layout.item_child_layout, parent, false));
+    protected MyChildViewHolder onCreateChildViewHolder(LayoutInflater inflater, ViewGroup parent) {
+        return new MyChildViewHolder(inflater.inflate(R.layout.item_child_layout, parent, false));
     }
 
     @Override
@@ -31,8 +33,7 @@ public class MyExpandableReyclerAdapter extends ExpandableRecyclerAdapter<MyExpa
     }
 
     @Override
-    protected void onBindChildViewHolder(ChildViewHolder holder) {
-
+    protected void onBindChildViewHolder(MyChildViewHolder holder) {
     }
 
     @Override
@@ -47,8 +48,27 @@ public class MyExpandableReyclerAdapter extends ExpandableRecyclerAdapter<MyExpa
         }
 
         @Override
+        protected void onParentHolderClick(View view, int position) {
+
+        }
+
+        @Override
         protected int getArrowId() {
             return R.id.handle;
+        }
+    }
+
+    public class MyChildViewHolder extends ChildViewHolder implements View.OnClickListener {
+
+        public MyChildViewHolder(View itemView) {
+            super(itemView);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            String info = mExpandableMenu.getMenuInfo().toString();
+            Toast.makeText(v.getContext(), "Child clicked on Position " + getAdapterPosition(), Toast.LENGTH_SHORT).show();
         }
     }
 }

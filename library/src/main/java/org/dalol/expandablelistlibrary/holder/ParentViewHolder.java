@@ -30,9 +30,10 @@ public abstract class ParentViewHolder extends RecyclerView.ViewHolder {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int position = getAdapterPosition();
+                onParentHolderClick(v, position);
                 List<ExpandableMenu> menuItems = mExpandableMenu.getMenuItems();
                 int count = menuItems.size();
-                int position = getAdapterPosition();
 
                 if (isExpanded()) {
                     if (mActionListener != null) {
@@ -73,6 +74,8 @@ public abstract class ParentViewHolder extends RecyclerView.ViewHolder {
             handle.animate().setDuration(ARROW_ROTATION_DURATION).rotation(90);
         }
     }
+
+    protected abstract void onParentHolderClick(View view, int position);
 
     @IdRes protected abstract int getArrowId();
 }
