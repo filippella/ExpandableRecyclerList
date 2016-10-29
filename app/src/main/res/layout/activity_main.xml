@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#c5c8cb"
+    android:background="#D1D1D1"
     android:orientation="vertical"
     tools:context="org.dalol.expandablerecyclerlist.MainActivity">
 
@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="3dp"
-        android:background="#a763d2"
+        android:background="#50ee6b"
         android:orientation="horizontal"
         android:paddingRight="8dp">
 
@@ -22,7 +22,7 @@
             android:gravity="center"
             android:padding="15dp"
             android:text="Enable Accordion List Mode"
-            android:textColor="#FFFFFF"
+            android:textColor="#e91e63"
             android:textStyle="bold" />
 
         <CheckBox

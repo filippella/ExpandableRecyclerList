@@ -20,7 +20,7 @@ public class MainController {
     public void showAbout() {
         AlertDialog dialog = new AlertDialog.Builder(mActivity)
                 .setTitle("About Developer")
-                .setMessage("Filippo Engidashet")
+                .setMessage("Developed by Filippo Engidashet on 28/10/2016!!")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
