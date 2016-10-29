@@ -23,9 +23,9 @@ package org.dalol.expandablelistlibrary.model;
  */
 public enum ExpandableType {
 
-    TYPE_MENU(0),
+    TYPE_PARENT(0),
 
-    TYPE_ITEM(1);
+    TYPE_CHILD(1);
 
     private final int mType;
 
@@ -35,5 +35,16 @@ public enum ExpandableType {
 
     public int getType() {
         return mType;
+    }
+
+    public static ExpandableType fromValue(int value) {
+        ExpandableType type = null;
+        for (ExpandableType expandableType : values()) {
+            if(value == expandableType.getType()) {
+                type = expandableType;
+                break;
+            }
+        }
+        return type;
     }
 }
