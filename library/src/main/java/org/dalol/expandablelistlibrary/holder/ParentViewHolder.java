@@ -18,7 +18,7 @@ import java.util.List;
  */
 public abstract class ParentViewHolder extends RecyclerView.ViewHolder {
 
-    private static final int ARROW_ROTATION_DURATION = 150;
+    private static final int ARROW_ROTATION_DURATION = 250;
 
     private final ImageView handle;
     private ExpandableMenu mExpandableMenu;
